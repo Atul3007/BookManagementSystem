@@ -1,1 +1,25 @@
-console.log(first)
+const express = require("express");
+//const { connection } = require("./config/db");
+const app=express();
+require('dotenv').config();
+app.use(express.json());
+
+const port = process.env.PORT; 
+
+app.get("/test",(req, res) => {
+  try {
+    res.send("Welcome");
+  } catch (error) {
+    console.log("Error");
+  }
+});
+
+app.listen(port, async () => {
+  try {
+    await connection;
+    console.log("Connected to db");
+  } catch (error) {
+    console.log("Error occurred");
+  }
+  console.log(`Running on ${port}`);
+});
