@@ -1,12 +1,16 @@
 const express = require("express");
-//const { connection } = require("./config/db");
+const { connection } = require("./config/db");
+const {bookrouter} = require("./routes/bookRoute") 
 const app=express();
 require('dotenv').config();
+
 app.use(express.json());
 
 const port = process.env.PORT; 
 
-app.get("/test",(req, res) => {
+app.use("/api/", bookrouter);
+
+app.get("/",(req, res) => {
   try {
     res.send("Welcome");
   } catch (error) {
