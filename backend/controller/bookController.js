@@ -100,11 +100,29 @@ const updateBook = async (req, res) => {
 };
 
 // ---------delete book---------
-
+const deleteBook = async (req, res) => {
+    try {
+      const id = req.params.id;
+      const deleteBook = await bookModel
+        .findByIdAndDelete(id);
+      res.status(200).send({ 
+        success: true,
+        message: "Book deleted successfully",
+      });
+    } catch (error) {
+      res.status(400).send({
+        success: false,
+        error: error.message,
+        message: "Error in deleting product",
+      });
+    }
+  };
+  
 
 module.exports = {
   getbookController,
   createBook,
   getBookByid,
-  updateBook
+  updateBook,
+  deleteBook
 };
