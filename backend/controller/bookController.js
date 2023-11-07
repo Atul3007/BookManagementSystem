@@ -18,7 +18,7 @@ const getbookController=async(req,res)=>{
   }
 }
 
-// --------crate book-------
+// --------create book-------
 
 const createBook = async (req, res) => {
     try {
@@ -49,8 +49,31 @@ const createBook = async (req, res) => {
       });
     }
   };
+
+//   ----------search by id -------------
+
+const getBookByid= async (req, res) => {
+    try {
+      const id = req.params.id;
+      const book = await bookModel.findById(id);
+      if (book) {
+        return res.status(201).send({
+            book
+        });
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      res.status(400).send({
+        success: false,
+        error: error.message,
+        message: "Error in getting product photo",
+      });
+    }
+  };
   
 module.exports={
     getbookController,
-    createBook
+    createBook,
+    getBookByid
 }
