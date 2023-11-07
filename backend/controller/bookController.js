@@ -34,14 +34,14 @@ const createBook = async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: "Product created successfully",
+      message: "Book created successfully",
       book,
     });
   } catch (error) {
     res.status(400).send({
       success: false,
       error: error.message,
-      message: "Error in creating product",
+      message: "Error in creating book",
     });
   }
 };
@@ -55,7 +55,8 @@ const getBookByid = async (req, res) => {
     const book = await bookModel.findById(id);
     if (book) {
       return res.status(201).send({
-        book,
+        success: true,
+        book
       });
     } else {
       console.log("error");
@@ -64,7 +65,7 @@ const getBookByid = async (req, res) => {
     res.status(400).send({
       success: false,
       error: error.message,
-      message: "Error in getting product photo",
+      message: "Error in getting book",
     });
   }
 };
@@ -88,13 +89,13 @@ const updateBook = async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: "Product updated successfully"
+      message: "Book updated successfully"
     });
   } catch (error) {
     res.status(400).send({
       success: false,
       error: error.message,
-      message: "Error in creating product",
+      message: "Error in updating book",
     });
   }
 };
@@ -113,7 +114,7 @@ const deleteBook = async (req, res) => {
       res.status(400).send({
         success: false,
         error: error.message,
-        message: "Error in deleting product",
+        message: "Error in deleting book",
       });
     }
   };
