@@ -2,6 +2,12 @@ const express = require("express");
 const { connection } = require("./config/db");
 const {bookrouter} = require("./routes/bookRoute") 
 const app=express();
+const cors = require("cors"); 
+
+app.use(
+  cors()
+);
+
 require('dotenv').config();
 
 app.use(express.json());
