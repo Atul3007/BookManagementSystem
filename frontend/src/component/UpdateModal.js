@@ -15,7 +15,7 @@ function UpdateModal({ isOpen, onClose, data,onUpdate }) {
   const handleUpdate = async() => {
     const obj={title:updatedData.title,summary:updatedData.summary,author:updatedData.author}
     console.log({obj,updatedData})
-    const {data}=await axios.put(`https://glorious-bull-slacks.cyclic.app/${updatedData._id}`,obj);
+    const {data}=await axios.put(`http://localhost:8000/api/update-book/${updatedData._id}`,obj);
   //  console.log(data)
     alert(data.message);
     onClose();

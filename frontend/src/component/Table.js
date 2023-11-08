@@ -18,7 +18,7 @@ const Table = (data) => {
   const deleteBook = async (id) => {
     try {
       const { data } = await axios.delete(
-        `https://glorious-bull-slacks.cyclic.app/${id}`
+        `http://localhost:8000/api/delete/${id}`
       );
       alert(data.message);
       const updatedList = book.filter((item) => item._id !== id);
