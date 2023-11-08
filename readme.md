@@ -20,9 +20,7 @@ Before you can get started, make sure you have the following prerequisites insta
 
 To set up the application locally, follow these steps:
 
-1. **Clone this repository** to your local machine:
-
-   git clone https://github.com/your-username/book-api.git
+1. **Clone this repository** to your local machine
 
 2. **Navigate to the project directory**:
    cd book-api
