@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import "../index.css";
 import axios from 'axios';
+import UpdateModal from './UpdateModal';
 
 const Table = (data) => {
      const[book,setBook]=useState([]);
+     const[isModalOpen,setIsModalOpen]=useState(Boolean);
+     const[selectedId,setSelectedId]=useState("");
+
      const newData=data.data;
+
      useEffect(()=>{
         setBook(newData);
      },[newData])
@@ -23,13 +28,15 @@ const Table = (data) => {
 
    const updateBook=async(id)=>{
     try {
-        alert(id)
+         setSelectedId(id);
+         setIsModalOpen(true);
     } catch (error) {
         alert("Error in updating")
     }
    }
 
   return (
+    <>
     <table>
       <thead>
         <tr>
@@ -46,11 +53,19 @@ const Table = (data) => {
             <td>{item.author}</td>
             <td>{item.summary}</td>
             <button className='delete-button' onClick={()=>{deleteBook((item?._id))}}>Delete</button>
-            <button className='update-button' onClick={()=>{updateBook((item?._id))}}>Update</button>
+            <button className='update-button' onClick={()=>{updateBook((item))}}>Update</button>
           </tr>
         ))}
       </tbody>
     </table>
+    {isModalOpen && (
+      <UpdateModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        data={selectedId}
+      />
+    )}
+    </>
   )
 }
 
