@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import "../index.css";
 import axios from "axios";
 import Table from './../component/Table';
+import { useList } from "../context/BookList";
 
 const Book = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
   const [allbooks, setAllbooks] = useState([]);
+ const [list,setList] = useList();
 
   const createBook = async (e) => {
     e.preventDefault();
@@ -30,6 +32,7 @@ const Book = () => {
     try {
       const response = await axios.get("http://localhost:8000/api/all-books");
       setAllbooks(response.data.books);
+      setList(response.data.books);
     } catch (error) {
       console.error("Error fetching book data:", error);
     }
@@ -70,7 +73,7 @@ const Book = () => {
         </button>
       </form>
     </div>
-    <Table data={allbooks} />
+    <Table data={list} />
     </>
   );
 };

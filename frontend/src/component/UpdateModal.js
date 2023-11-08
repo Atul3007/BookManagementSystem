@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import "../index.css";
 import axios from 'axios';
+import { useList } from '../context/BookList';
 
 function UpdateModal({ isOpen, onClose, data,onUpdate }) {
   const [updatedData, setUpdatedData] = useState(data);
+  const [list,setList]=useList();
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUpdatedData({ ...updatedData, [name]: value });
@@ -13,10 +16,11 @@ function UpdateModal({ isOpen, onClose, data,onUpdate }) {
     const obj={title:updatedData.title,summary:updatedData.summary,author:updatedData.author}
     console.log({obj,updatedData})
     const {data}=await axios.put(`http://localhost:8000/api/update-book/${updatedData._id}`,obj);
-    console.log(data)
+  //  console.log(data)
     alert(data.message);
     onClose();
-    window.location.reload();
+    setList(data.updatedList);
+    //window.location.reload();
   };
 
   return (
