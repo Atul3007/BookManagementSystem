@@ -15,7 +15,7 @@ const Book = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:8000/api/create-book",
+        "https://glorious-bull-slacks.cyclic.app/api/create-book",
         { title, summary: description, author }
       );
       data?.success ? alert(data.message) : alert("error");
@@ -30,7 +30,7 @@ const Book = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/all-books");
+      const response = await axios.get("https://glorious-bull-slacks.cyclic.app/api/all-books");
       setAllbooks(response.data.books);
       setList(response.data.books);
     } catch (error) {
