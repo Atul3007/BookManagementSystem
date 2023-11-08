@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "../index.css";
 import axios from 'axios';
 
-function UpdateModal({ isOpen, onClose, data }) {
+function UpdateModal({ isOpen, onClose, data,onUpdate }) {
   const [updatedData, setUpdatedData] = useState(data);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -16,6 +16,7 @@ function UpdateModal({ isOpen, onClose, data }) {
     console.log(data)
     alert(data.message);
     onClose();
+    window.location.reload();
   };
 
   return (

@@ -87,9 +87,12 @@ const updateBook = async (req, res) => {
     });
     await book.save();
 
+    const updatedList =await bookModel.find({});
+
     res.status(201).json({
       success: true,
-      message: "Book updated successfully"
+      message: "Book updated successfully",
+      updatedList
     });
   } catch (error) {
     res.status(400).send({
