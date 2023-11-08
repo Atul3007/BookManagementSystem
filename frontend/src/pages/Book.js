@@ -18,6 +18,9 @@ const Book = () => {
       );
       data?.success ? alert(data.message) : alert("error");
       fetchData();
+      setTitle("");
+      setAuthor("");
+      setDescription("");
     } catch (error) {
       console.log({ error, message: "error in creating" });
     }

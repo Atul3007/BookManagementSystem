@@ -35,49 +35,15 @@ input {
   border-radius: 3px;
 }
 
-.add-button {
-  background-color: #0074d9;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  padding: 12px 24px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.2s;
-  font-size: 16px;
-}
-
-.add-button:hover {
-  background-color: #0056a0;
-  transform: scale(1.05);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.delete-button:hover {
-  background-color:red;
-  transform: scale(1.05);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.delete-button {
-  background-color: rgb(238, 79, 79);
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  padding: 12px 24px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.2s;
-  font-size: 16px;
-}
 /* Style for the table */
 table {
-  margin-top: 50px;
   width: 100%;
   border-collapse: collapse;
   background-color: #f5f5f5;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
 }
 
 /* Style for table headers */
@@ -109,4 +75,33 @@ tr:nth-child(odd) {
 /* Hover effect on table rows */
 tr:hover {
   background-color: #d3d3d3;
+}
+
+/* Style for action buttons */
+button.delete-button {
+  background-color: #ff5733;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+button.update-button {
+  background-color: #0074d9;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+button.add-button {
+  background-color:rgb(224, 23, 23);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 6px 12px;
+  cursor: pointer;
 }

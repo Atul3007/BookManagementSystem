@@ -14,9 +14,18 @@ const Table = (data) => {
     try {
         const {data}=await axios.delete(`http://localhost:8000/api/delete/${id}`)
         alert(data.message);   
-        
+        const updatedList = book.filter((item) => item._id !== id);
+        setBook(updatedList);
     } catch (error) {
         alert("error in deleting")
+    }
+   }
+
+   const updateBook=async(id)=>{
+    try {
+        alert(id)
+    } catch (error) {
+        alert("Error in updating")
     }
    }
 
@@ -27,7 +36,7 @@ const Table = (data) => {
            <th>Title</th> 
           <th>Author</th>
           <th>Summary</th>
-          <th>Delete</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -37,6 +46,7 @@ const Table = (data) => {
             <td>{item.author}</td>
             <td>{item.summary}</td>
             <button className='delete-button' onClick={()=>{deleteBook((item?._id))}}>Delete</button>
+            <button className='update-button' onClick={()=>{updateBook((item?._id))}}>Update</button>
           </tr>
         ))}
       </tbody>
