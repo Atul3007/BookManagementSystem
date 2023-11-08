@@ -1,6 +1,6 @@
-# Book API
+# BookManagementSystem
 
-Welcome to the Book API, a powerful Node.js application for managing books. This API provides various endpoints for interacting with book data. Whether you want to list all books, create a new book, update an existing one, or delete a book, this API has got you covered.
+Welcome to the BookManagementSystem, a powerful Node.js application for managing books. This API provides various endpoints for interacting with book data. Whether you want to list all books, create a new book, update an existing one, or delete a book, this API has got you covered.
 
 ## API Endpoints
 
